@@ -23,3 +23,12 @@ class BinaryTree
 {
 public:
     Node *ROOT;
+
+    BinaryTree()
+    {
+        ROOT = nullptr; // Menginisialisasi ROOT ke null
+    }
+
+    void insert()
+    {
+      
