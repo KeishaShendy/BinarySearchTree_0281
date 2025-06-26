@@ -48,3 +48,4 @@ public:
         // Langkah 4: Temukan node yang akan menjadi parent dari node yang akan disisipkan
         Node *parent = nullptr;
         Node *currentNode = nullptr;
+        search(x, parent, currentNode); // Pastikan fungsi search() tersedia
