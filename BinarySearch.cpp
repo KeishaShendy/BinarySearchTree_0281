@@ -160,3 +160,47 @@ bool isEmpty()
 {
     return ROOT == nullptr;
 }
+
+
+
+int main()
+{
+    BinaryTree x; // Membuat objek pohon
+
+    while (true)
+    {
+        // Menu interaktif
+        cout << "\nMenu" << endl;
+        cout << "1. Implement insert operation" << endl;
+        cout << "2. Perform inorder traversal" << endl;
+        cout << "3. Perform preorder traversal" << endl;
+        cout << "4. Perform postorder traversal" << endl;
+        cout << "5. Exit" << endl;
+        cout << "\nEnter your choice (1-5) : ";
+
+        char ch;
+        cin >> ch;
+        cout << endl;
+
+        switch (ch)
+        {
+        case '1':
+            x.insert();                // Menyisipkan data
+            break;
+        case '2':
+            x.inorder(x.ROOT);         // Traversal inorder
+            break;
+        case '3':
+            x.preorder(x.ROOT);        // Traversal preorder
+            break;
+        case '4':
+            x.postorder(x.ROOT);       // Traversal postorder
+            break;
+        case '5':
+            return 0;                  // Keluar dari program
+        default:
+            cout << "Invalid option" << endl;
+            break;
+        }
+    }
+}
