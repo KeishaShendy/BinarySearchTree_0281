@@ -56,3 +56,10 @@ public:
             ROOT = newNode; // 5a: Jadikan newNode sebagai ROOT
             return;         // 5b: Selesai
         }
+
+        // Step 6: Jika nilai data node baru lebih kecil dari parent
+        if (x < parent->info)
+        {
+            parent->leftchild = newNode; // 6a
+            return;                      // 6b
+        }
