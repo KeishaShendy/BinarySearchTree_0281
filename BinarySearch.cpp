@@ -1,6 +1,3 @@
-// BinarySearchTree_4NIMBelakang
-// 15 Commit
-
 #include <iostream>
 using namespace std;
 
@@ -27,6 +24,12 @@ public:
     BinaryTree()
     {
         ROOT = nullptr; // Menginisialisasi ROOT ke null
+    }
+
+    // Fungsi untuk mengecek apakah pohon kosong
+    bool isEmpty()
+    {
+        return ROOT == nullptr;
     }
 
     void insert()
@@ -87,81 +90,58 @@ public:
                 current = current->rightchild;
         }
     }
+
+    // Fungsi inorder traversal: kiri → root → kanan
+    void inorder(Node *ptr)
+    {
+        if (isEmpty())
+        {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+
+        if (ptr == nullptr)
+            return;
+
+        inorder(ptr->leftchild);     // Kiri
+        cout << ptr->info << " ";    // Tampilkan data
+        inorder(ptr->rightchild);    // Kanan
+    }
+
+    // Fungsi preorder traversal: root → kiri → kanan
+    void preorder(Node *ptr)
+    {
+        if (isEmpty())
+        {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+
+        if (ptr == nullptr)
+            return;
+
+        cout << ptr->info << " ";    // Tampilkan data
+        preorder(ptr->leftchild);    // Kiri
+        preorder(ptr->rightchild);   // Kanan
+    }
+
+    // Fungsi postorder traversal: kiri → kanan → root
+    void postorder(Node *ptr)
+    {
+        if (isEmpty())
+        {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+
+        if (ptr == nullptr)
+            return;
+
+        postorder(ptr->leftchild);    // Kiri
+        postorder(ptr->rightchild);   // Kanan
+        cout << ptr->info << " ";     // Tampilkan data (akhir)
+    }
 };
- // Fungsi untuk mencari parent dan posisi node saat menyisipkan
-void search(int x, Node *&parent, Node *&current)
-{
-    current = ROOT;
-    parent = nullptr;
-
-    while (current != nullptr && current->info != x)
-    {
-        parent = current;
-        if (x < current->info)
-            current = current->leftchild;
-        else
-            current = current->rightchild;
-    }
-}
-
-// Fungsi inorder traversal: kiri → root → kanan
-void inorder(Node *ptr)
-{
-    if (isEmpty())
-    {
-        cout << "Tree is empty" << endl;
-        return;
-    }
-
-    if (ptr == nullptr)
-        return;
-
-    inorder(ptr->leftchild);     // Kiri
-    cout << ptr->info << " ";    // Tampilkan data
-    inorder(ptr->rightchild);    // Kanan
-}
-
-// Fungsi preorder traversal: root → kiri → kanan
-void preorder(Node *ptr)
-{
-    if (isEmpty())
-    {
-        cout << "Tree is empty" << endl;
-        return;
-    }
-
-    if (ptr == nullptr)
-        return;
-
-    cout << ptr->info << " ";    // Tampilkan data
-    preorder(ptr->leftchild);    // Kiri
-    preorder(ptr->rightchild);   // Kanan
-}
-
-// Fungsi postorder traversal: kiri → kanan → root
-void postorder(Node *ptr)
-{
-    if (isEmpty())
-    {
-        cout << "Tree is empty" << endl;
-        return;
-    }
-
-    if (ptr == nullptr)
-        return;
-
-    postorder(ptr->leftchild);    // Kiri
-    postorder(ptr->rightchild);   // Kanan
-    cout << ptr->info << " ";     // Tampilkan data (akhir)
-}
-
-// Fungsi untuk mengecek apakah pohon kosong
-bool isEmpty()
-{
-    return ROOT == nullptr;
-}
-
-
 
 int main()
 {
@@ -189,12 +169,15 @@ int main()
             break;
         case '2':
             x.inorder(x.ROOT);         // Traversal inorder
+            cout << endl;
             break;
         case '3':
             x.preorder(x.ROOT);        // Traversal preorder
+            cout << endl;
             break;
         case '4':
             x.postorder(x.ROOT);       // Traversal postorder
+            cout << endl;
             break;
         case '5':
             return 0;                  // Keluar dari program
