@@ -154,3 +154,9 @@ void postorder(Node *ptr)
     postorder(ptr->rightchild);   // Kanan
     cout << ptr->info << " ";     // Tampilkan data (akhir)
 }
+
+// Fungsi untuk mengecek apakah pohon kosong
+bool isEmpty()
+{
+    return ROOT == nullptr;
+}
