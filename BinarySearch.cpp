@@ -137,3 +137,20 @@ void preorder(Node *ptr)
     preorder(ptr->leftchild);    // Kiri
     preorder(ptr->rightchild);   // Kanan
 }
+
+// Fungsi postorder traversal: kiri → kanan → root
+void postorder(Node *ptr)
+{
+    if (isEmpty())
+    {
+        cout << "Tree is empty" << endl;
+        return;
+    }
+
+    if (ptr == nullptr)
+        return;
+
+    postorder(ptr->leftchild);    // Kiri
+    postorder(ptr->rightchild);   // Kanan
+    cout << ptr->info << " ";     // Tampilkan data (akhir)
+}
