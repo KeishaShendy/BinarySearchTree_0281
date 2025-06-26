@@ -88,3 +88,18 @@ public:
         }
     }
 };
+ // Fungsi untuk mencari parent dan posisi node saat menyisipkan
+void search(int x, Node *&parent, Node *&current)
+{
+    current = ROOT;
+    parent = nullptr;
+
+    while (current != nullptr && current->info != x)
+    {
+        parent = current;
+        if (x < current->info)
+            current = current->leftchild;
+        else
+            current = current->rightchild;
+    }
+}
