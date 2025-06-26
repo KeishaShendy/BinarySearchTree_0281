@@ -31,4 +31,20 @@ public:
 
     void insert()
     {
-      
+        int x;
+        cout << "Masukan nilai: ";
+        cin >> x;
+
+        // Langkah 1: Alokasikan memori untuk node baru
+        Node *newNode = new Node();
+
+        // Langkah 2: Isi nilai data pada node baru
+        newNode->info = x;
+
+        // Langkah 3: Set anak kiri dan kanan dari node baru ke NULL
+        newNode->leftchild = nullptr;
+        newNode->rightchild = nullptr;
+
+        // Langkah 4: Temukan node yang akan menjadi parent dari node yang akan disisipkan
+        Node *parent = nullptr;
+        Node *currentNode = nullptr;
