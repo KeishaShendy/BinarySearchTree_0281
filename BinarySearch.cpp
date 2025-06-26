@@ -49,3 +49,10 @@ public:
         Node *parent = nullptr;
         Node *currentNode = nullptr;
         search(x, parent, currentNode); // Pastikan fungsi search() tersedia
+
+        // Step 5: Jika parent adalah NULL (berarti pohon masih kosong)
+        if (parent == nullptr)
+        {
+            ROOT = newNode; // 5a: Jadikan newNode sebagai ROOT
+            return;         // 5b: Selesai
+        }
