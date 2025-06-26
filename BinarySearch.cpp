@@ -63,3 +63,11 @@ public:
             parent->leftchild = newNode; // 6a
             return;                      // 6b
         }
+
+        // Step 7: Jika nilai data node baru lebih besar dari parent
+        else if (x > parent->info)
+        {
+            parent->rightchild = newNode; // 7a
+            return;                       // 7b
+        }
+    }
